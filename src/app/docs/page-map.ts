@@ -72,7 +72,7 @@ function getAllDocFiles(dir: string, baseDir: string = dir): string[] {
         files.push(...getAllDocFiles(fullPath, baseDir))
       }
     } else if (entry.isFile() && (entry.name.endsWith('.md') || entry.name.endsWith('.mdx'))) {
-      files.push(relativePath)
+      files.push(relativePath.replace(/\\/g, '/'))
     }
   }
   
